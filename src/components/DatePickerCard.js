@@ -5,32 +5,23 @@ import DateFnsUtils from '@date-io/date-fns';
 
 
 
-export class CustomDatePicker extends Component {
-
-  state = {
-    selectedDate: this.props.date,
-    title: this.props.title,
-  };
-
-
-  handleDateChange = date => {
-    console.log(date);
-    this.setState({ selectedDate: date });
-  };
-
+export class DatePickerCard extends Component {
+  
   render() {
-    const { title, selectedDate } = this.state;
+    const { id, title, selectedDate } = this.props;
     return (
       <MuiPickersUtilsProvider utils={DateFnsUtils}>
         <DatePicker
           margin="normal"
           label={title}
           value={selectedDate}
-          onChange={this.handleDateChange}
+          onChange={date => this.props.handleDateChange({ date: date, id: id })}
+          format={'dd/MM/yyyy'}
         />
       </MuiPickersUtilsProvider>
     )
   }
+  
 }
-export default CustomDatePicker
+export default DatePickerCard
 
