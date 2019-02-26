@@ -31,7 +31,12 @@ export class DaysCalculator extends Component {
         const { startDate, endDate } = this.state;
         return (
             <div >
+                <h1>Days Calculator: Days Between Two Dates</h1>
+
+                <p>How days are there between two dates?</p>
                 <Grid container spacing={24}>
+    
+    
                     <Grid item xs={12} sm={6}>
                         <Paper>
                             <DatePickerCard id="start_date" title="Start date" selectedDate={startDate} handleDateChange={this.handleDateChange} />
@@ -45,7 +50,7 @@ export class DaysCalculator extends Component {
                 </Grid>
                 <br></br>
                 <p>
-                    Days: {Math.floor(Math.abs((startDate.getTime() - endDate.getTime()) / (24 * 60 * 60 * 1000)))}
+                    Result: {Math.floor(Math.abs((startDate.getTime() - endDate.getTime()) / (24 * 60 * 60 * 1000)))} day(s)
                 </p>
 
             </div>
